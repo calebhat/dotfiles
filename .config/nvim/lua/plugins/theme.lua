@@ -1,0 +1,1 @@
+/home/caleb/.config/omarchy/current/theme/neovim.lua
