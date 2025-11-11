@@ -1,0 +1,36 @@
+# ~/.config/starstarship.toml
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$cmd_duration\
+$line_break\
+$character"""
+
+# Directory: truncate to 3 levels, show ~ for home
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+format = "[$path]($style)[$read_only]($read_only_style) "
+
+# Git: clean and minimal
+[git_branch]
+symbol = "󰊢 "
+format = "[$symbol$branch]($style)"
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style))'
+stashed = "≡"
+
+# Command duration: only show if >2s (avoids clutter in fast Neovim commands)
+[cmd_duration]
+min_time = 2_000
+format = "[$duration](yellow)"
+
+# Prompt character: green check for success, red cross for failure
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
