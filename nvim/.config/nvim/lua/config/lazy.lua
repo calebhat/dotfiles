@@ -26,7 +26,7 @@ require("lazy").setup({
     -- If you know what you're doing, you can set this to `true` to have all your custom plugins lazy-loaded by default.
     lazy = false,
     -- It's recommended to leave version=false for now, since a lot the plugin that support versioning,
-    -- have outdated releases, which may break your Neovim install.
+    -- have outdated releases, which mae break your Neovim install.
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
@@ -48,6 +48,18 @@ require("lazy").setup({
         "tutor",
         "zipPlugin",
       },
+    },
+  },
+  plugins = {
+    {
+      "nvim-telescope/telescope.nvim",
+      opts = function(_, opts)
+        opts.pickers = opts.pickers or {}
+        opts.pickers.buffers = vim.tbl_deep_extend("force", opts.pickers.buffers or {}, {
+          path_display = { "tail" }, -- Shows only the filename (e.g., "main.lua")
+        })
+        return opts
+      end,
     },
   },
 })
