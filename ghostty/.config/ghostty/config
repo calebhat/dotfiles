@@ -28,3 +28,6 @@ shell-integration-features = ssh-env
 
 #shell
 command = /usr/bin/bash
+
+# Slowdown mouse scrolling
+mouse-scroll-multiplier = 0.95
